@@ -10,7 +10,7 @@ public class Conexao {
     private static final String USER = "";
     private static final String PSSW = "";
 
-    public Connection connection()throws SQLException{
+    public static Connection connection()throws SQLException{
         return DriverManager.getConnection(URL, USER, PSSW);
     }
 
