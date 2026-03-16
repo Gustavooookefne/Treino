@@ -1,4 +1,7 @@
 package com.teste.Treino.repository;
 
-public class DietaRepository {
+import com.teste.Treino.model.Dieta;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DietaRepository extends JpaRepository<Dieta ,Long> {
 }
