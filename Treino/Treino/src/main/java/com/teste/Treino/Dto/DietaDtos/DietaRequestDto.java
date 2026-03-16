@@ -1,4 +1,9 @@
 package com.teste.Treino.Dto.DietaDtos;
 
-public class DietaRequestDto {
+public record DietaRequestDto (
+
+    String nomeDieta,
+    String detalhesDieta
+
+){
 }

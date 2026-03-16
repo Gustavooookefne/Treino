@@ -1,4 +1,9 @@
 package com.teste.Treino.Dto.DietaDtos;
 
-public class DietaResponseDto {
+public record DietaResponseDto (
+
+        long id,
+        String nomeDieta,
+        String detalhesDieta
+){
 }
