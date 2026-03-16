@@ -1,6 +1,6 @@
 package com.teste.Treino.service;
 
-import com.teste.Treino.Dto.DietaDtos.DietaRequestDto;
+import com.teste.Treino.dto.DietaDtos.DietaRequestDto;
 import com.teste.Treino.model.Dieta;
 import com.teste.Treino.repository.DietaRepository;
 import lombok.AllArgsConstructor;

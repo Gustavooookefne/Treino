@@ -1,6 +1,4 @@
-package com.teste.Treino.Dto.UsuarioDtos;
-
-import java.util.UUID;
+package com.teste.Treino.dto.UsuarioDtos;
 
 public record UsuarioResponseDto (
 

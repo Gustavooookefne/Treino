@@ -1,4 +1,4 @@
-package com.teste.Treino.Dto.UsuarioDtos;
+package com.teste.Treino.dto.UsuarioDtos;
 
 public record UsuarioRequestDto (
 

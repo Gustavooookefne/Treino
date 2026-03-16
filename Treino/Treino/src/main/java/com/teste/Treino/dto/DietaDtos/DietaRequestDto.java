@@ -1,4 +1,4 @@
-package com.teste.Treino.Dto.DietaDtos;
+package com.teste.Treino.dto.DietaDtos;
 
 public record DietaRequestDto (
 

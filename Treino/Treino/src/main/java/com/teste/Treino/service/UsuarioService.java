@@ -1,6 +1,6 @@
 package com.teste.Treino.service;
 
-import com.teste.Treino.Dto.UsuarioDtos.UsuarioRequestDto;
+import com.teste.Treino.dto.UsuarioDtos.UsuarioRequestDto;
 import com.teste.Treino.model.Usuario;
 import com.teste.Treino.repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
