@@ -26,6 +26,11 @@ public class Usuario {
         this.altura = altura;
     }
 
+    public Usuario() {
+
+    }
+
+
     public long getId() {
         return id;
     }
