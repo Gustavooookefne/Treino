@@ -1,4 +1,8 @@
 package com.teste.Treino.Dto.TreinoDtos;
 
-public class TreinoRequestDto {
+public record TreinoRequestDto (
+
+        String tipo,
+        String descricao
+){
 }
