@@ -1,4 +1,4 @@
 package com.teste.Treino.Dto;
 
-public class TreinoDto {
+public class TreinoRequestDto {
 }
