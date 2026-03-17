@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UsuarioMapper {
 
-    public Usuario paraEntidade (UsuarioRequestDto usuarioRequestDto){
+    public Usuario paraEntidade (UsuarioRequestDto usuarioRequestDto) {
 
         return new Usuario(
 

@@ -20,4 +20,6 @@ public class Treino {
     private String tipo;
     private String descricao;
 
+    public Treino(String descricao, String tipo) {
+    }
 }
