@@ -21,4 +21,6 @@ public class Dieta {
     private String detalhesDieta;
 
 
+    public Dieta(String s, String s1) {
+    }
 }
