@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -30,6 +31,17 @@ public class TreinoService {
     public Treino listarPorId(long id){
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Lista não encontrada" + id));
+    }
+
+    public Treino atualizar (long id ,TreinoRequestDto dto){
+
+        Treino treino = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Treino não encontrado"));
+
+        treino.setDescricao(dto.descricao());
+        treino.setTipo(dto.tipo());
+
+        return repository.save(treino);
     }
 
     public void deletarTreino (long id){
