@@ -32,6 +32,17 @@ public class DietaService {
                 .orElseThrow(() -> new RuntimeException("Lista não encontrada"));
     }
 
+    public Dieta atualizar (long id , DietaRequestDto dto){
+
+        Dieta dieta = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Dieta não encontrada"));
+
+        dieta.setNomeDieta(dto.nomeDieta());
+        dieta.setDetalhesDieta(dto.detalhesDieta());
+
+        return repository.save(dieta);
+    }
+
     public void deletar (long id){
         repository.deleteById(id);
     }
