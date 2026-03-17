@@ -25,4 +25,6 @@ public class Usuario {
     private double peso;
     private double altura;
 
+    public Usuario(String nome, String email, int idade, double peso, double altura) {
+    }
 }
