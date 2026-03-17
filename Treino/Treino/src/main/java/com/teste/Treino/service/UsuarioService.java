@@ -37,6 +37,21 @@ public class UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado" + id));
     }
 
+    public Usuario atualizar (UUID id, UsuarioRequestDto dto){
+
+        Usuario usuario = repository.findById(id)
+
+                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+
+        usuario.setNome(dto.nome());
+        usuario.setEmail(dto.email());
+        usuario.setIdade(dto.idade());
+        usuario.setPeso(dto.peso());
+        usuario.setAltura(dto.altura());
+
+        return repository.save(usuario);
+    }
+
     public void deletar (UUID id){
         repository.deleteById(id);
     }
