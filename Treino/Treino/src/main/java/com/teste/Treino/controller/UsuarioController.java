@@ -21,22 +21,22 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public Usuario save(@RequestBody UsuarioRequestDto usuarioRequestDto){
+    public UsuarioResponseDto save(@RequestBody UsuarioRequestDto usuarioRequestDto){
         return usuarioService.salvar(usuarioRequestDto);
     }
 
     @GetMapping
-    public List<Usuario> listarTodos(){
+    public List<UsuarioResponseDto> listarTodos(){
         return usuarioService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public Usuario listarPorId (@PathVariable UUID id){
+    public UsuarioResponseDto listarPorId (@PathVariable UUID id){
         return usuarioService.listarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Usuario atualizar (@RequestBody UsuarioRequestDto usuarioRequestDto ,@PathVariable UUID id){
+    public UsuarioResponseDto atualizar (@RequestBody UsuarioRequestDto usuarioRequestDto ,@PathVariable UUID id){
         return usuarioService.atualizar(id, usuarioRequestDto);
     }
 

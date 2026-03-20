@@ -1,6 +1,8 @@
 package com.teste.Treino.service;
 
 import com.teste.Treino.dto.UsuarioDtos.UsuarioRequestDto;
+import com.teste.Treino.dto.UsuarioDtos.UsuarioResponseDto;
+import com.teste.Treino.mapper.UsuarioMapper;
 import com.teste.Treino.model.Usuario;
 import com.teste.Treino.repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
@@ -14,6 +16,7 @@ import java.util.UUID;
 public class UsuarioService {
 
     private final UsuarioRepository repository;
+
 
     public Usuario salvar (UsuarioRequestDto dto){
         Usuario usuario = new Usuario();
