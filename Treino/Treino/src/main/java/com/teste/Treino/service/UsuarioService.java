@@ -16,9 +16,9 @@ import java.util.UUID;
 public class UsuarioService {
 
     private final UsuarioRepository repository;
+    private final UsuarioMapper mapper;
 
-
-    public Usuario salvar (UsuarioRequestDto dto){
+    public UsuarioResponseDto salvar (UsuarioRequestDto dto){
         Usuario usuario = new Usuario();
 
         usuario.setNome(dto.nome());
@@ -27,20 +27,25 @@ public class UsuarioService {
         usuario.setPeso(dto.peso());
         usuario.setAltura(dto.altura());
 
-        return repository.save(usuario);
+        return mapper.paraDtos(repository.save(usuario));
 
     }
 
-    public List<Usuario> listarTodos(){
-        return repository.findAll();
+    public List<UsuarioResponseDto> listarTodos(){
+        return repository.findAll()
+                .stream()
+                .map(mapper::paraDtos)
+                .toList();
     }
 
-    public Usuario listarPorId(UUID id){
-        return repository.findById(id)
+    public UsuarioResponseDto listarPorId(UUID id){
+        Usuario usuario = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado" + id));
+
+        return mapper.paraDtos(usuario);
     }
 
-    public Usuario atualizar (UUID id, UsuarioRequestDto dto){
+    public UsuarioResponseDto atualizar (UUID id, UsuarioRequestDto dto){
 
         Usuario usuario = repository.findById(id)
 
@@ -52,7 +57,7 @@ public class UsuarioService {
         usuario.setPeso(dto.peso());
         usuario.setAltura(dto.altura());
 
-        return repository.save(usuario);
+        return mapper.paraDtos(usuario);
     }
 
     public void deletar (UUID id){
