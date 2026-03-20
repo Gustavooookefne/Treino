@@ -1,8 +1,10 @@
 package com.teste.Treino.dto.UsuarioDtos;
 
+import java.util.UUID;
+
 public record UsuarioResponseDto (
 
-        long id,
+        UUID id,
         String nome,
         String email,
         int idade,

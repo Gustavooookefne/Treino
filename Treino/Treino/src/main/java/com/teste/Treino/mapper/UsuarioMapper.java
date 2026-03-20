@@ -1,6 +1,7 @@
 package com.teste.Treino.mapper;
 
 import com.teste.Treino.dto.UsuarioDtos.UsuarioRequestDto;
+import com.teste.Treino.dto.UsuarioDtos.UsuarioResponseDto;
 import com.teste.Treino.model.Usuario;
 import org.springframework.stereotype.Component;
 
@@ -19,9 +20,10 @@ public class UsuarioMapper {
         );
     }
 
-    public Usuario paraDtos (Usuario usuario){
+    public UsuarioResponseDto paraDtos (Usuario usuario){
 
-        return new Usuario(
+        return new UsuarioResponseDto(
+
                 usuario.getId(),
                 usuario.getNome(),
                 usuario.getEmail(),
@@ -31,4 +33,6 @@ public class UsuarioMapper {
 
         );
     }
+
+
 }
