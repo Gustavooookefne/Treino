@@ -1,6 +1,8 @@
 package com.teste.Treino.service;
 
 import com.teste.Treino.dto.DietaDtos.DietaRequestDto;
+import com.teste.Treino.dto.DietaDtos.DietaResponseDto;
+import com.teste.Treino.mapper.DietaMapper;
 import com.teste.Treino.model.Dieta;
 import com.teste.Treino.repository.DietaRepository;
 import lombok.AllArgsConstructor;
@@ -13,26 +15,32 @@ import java.util.List;
 public class DietaService {
 
     private final DietaRepository repository;
+    private final DietaMapper mapper;
 
-    public Dieta salvar (DietaRequestDto dto) {
+    public DietaResponseDto salvar (DietaRequestDto dto) {
         Dieta dieta = new Dieta();
 
         dieta.setDetalhesDieta(dto.detalhesDieta());
         dieta.setNomeDieta(dto.nomeDieta());
 
-        return repository.save(dieta);
+        return mapper.paraDto(repository.save(dieta));
     }
 
-    public List<Dieta> listarTodos () {
-        return repository.findAll();
+    public List<DietaResponseDto> listarTodos () {
+        return repository.findAll()
+                .stream()
+                .map(mapper::paraDto)
+                .toList();
     }
 
-    public Dieta listarPorId (long id) {
-        return repository.findById(id)
+    public DietaResponseDto listarPorId (long id) {
+        Dieta dieta = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Lista não encontrada"));
+
+        return mapper.paraDto(dieta);
     }
 
-    public Dieta atualizar (long id , DietaRequestDto dto){
+    public DietaResponseDto atualizar (long id , DietaRequestDto dto){
 
         Dieta dieta = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Dieta não encontrada"));
@@ -40,7 +48,7 @@ public class DietaService {
         dieta.setNomeDieta(dto.nomeDieta());
         dieta.setDetalhesDieta(dto.detalhesDieta());
 
-        return repository.save(dieta);
+        return mapper.paraDto(dieta);
     }
 
     public void deletar (long id){
