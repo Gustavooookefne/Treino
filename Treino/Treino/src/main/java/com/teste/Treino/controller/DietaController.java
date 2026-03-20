@@ -1,6 +1,7 @@
 package com.teste.Treino.controller;
 
 import com.teste.Treino.dto.DietaDtos.DietaRequestDto;
+import com.teste.Treino.dto.DietaDtos.DietaResponseDto;
 import com.teste.Treino.model.Dieta;
 import com.teste.Treino.service.DietaService;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +19,22 @@ public class DietaController {
     }
 
     @PostMapping
-    public Dieta salvar (@RequestBody DietaRequestDto dietaRequestDto){
+    public DietaResponseDto salvar (@RequestBody DietaRequestDto dietaRequestDto){
         return service.salvar(dietaRequestDto);
     }
 
     @GetMapping
-    public List<Dieta> listarTodos (){
+    public List<DietaResponseDto> listarTodos (){
         return service.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public Dieta listarPorId (@PathVariable long id) {
+    public DietaResponseDto listarPorId (@PathVariable long id) {
         return service.listarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Dieta atualizar (@RequestBody DietaRequestDto dietaRequestDto , @PathVariable long id){
+    public DietaResponseDto atualizar (@RequestBody DietaRequestDto dietaRequestDto , @PathVariable long id){
         return service.atualizar(id , dietaRequestDto);
     }
 
