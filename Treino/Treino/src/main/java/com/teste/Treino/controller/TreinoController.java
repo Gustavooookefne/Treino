@@ -1,6 +1,7 @@
 package com.teste.Treino.controller;
 
 import com.teste.Treino.dto.TreinoDtos.TreinoRequestDto;
+import com.teste.Treino.dto.TreinoDtos.TreinoResponseDto;
 import com.teste.Treino.model.Treino;
 import com.teste.Treino.service.TreinoService;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +19,22 @@ public class TreinoController {
     }
 
     @PostMapping
-    public Treino salvar (@RequestBody TreinoRequestDto treinoRequestDto){
+    public TreinoResponseDto salvar (@RequestBody TreinoRequestDto treinoRequestDto){
         return service.salvar(treinoRequestDto);
     }
 
     @GetMapping
-    public List<Treino> listarTodos(){
+    public List<TreinoResponseDto> listarTodos(){
         return service.listarTreinos();
     }
 
     @GetMapping("/{id}")
-    public Treino listarPorId (@PathVariable long id) {
+    public TreinoResponseDto listarPorId (@PathVariable long id) {
         return service.listarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Treino atualizar (@RequestBody TreinoRequestDto treinoRequestDto , @PathVariable long id){
+    public TreinoResponseDto atualizar (@RequestBody TreinoRequestDto treinoRequestDto , @PathVariable long id){
         return service.atualizar(id, treinoRequestDto);
     }
 
